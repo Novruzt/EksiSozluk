@@ -1,0 +1,6 @@
+@EksiSozluk.Api.WebApi_HostAddress = http://localhost:5108
+
+GET {{EksiSozluk.Api.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
