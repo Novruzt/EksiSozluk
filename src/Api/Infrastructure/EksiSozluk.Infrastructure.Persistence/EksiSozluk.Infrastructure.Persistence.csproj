@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\EksiSozluk.Api.Application\EksiSozluk.Api.Application.csproj" />
 	  <ProjectReference Include="..\..\Core\EksiSozluk.Api.Domain\EksiSozluk.Api.Domain.csproj" />
 	</ItemGroup>
 
