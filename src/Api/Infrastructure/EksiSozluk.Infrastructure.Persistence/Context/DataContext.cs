@@ -12,6 +12,23 @@ namespace EksiSozluk.Infrastructure.Persistence.Context
     public class DataContext : DbContext
     {
         public const string DEFAULT_SCHEMA = "dbo";
+        public DataContext()
+        {
+            
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                string connString = "Data Source=.;Database=EksiSozluk;Integrated Security=true;Trusted_Connection=true;TrustServerCertificate=True;";
+
+                optionsBuilder.UseSqlServer(connString, opt =>
+                {
+                    opt.EnableRetryOnFailure();
+                });
+            }
+        }
 
         public DataContext(DbContextOptions options):base(options)
         {
