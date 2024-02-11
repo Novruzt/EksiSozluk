@@ -1,4 +1,6 @@
 
+using EksiSozluk.Infrastructure.Persistence.Extensions;
+
 namespace EksiSozluk.Api.WebApi
 {
     public class Program
@@ -13,6 +15,8 @@ namespace EksiSozluk.Api.WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddInfrastructureRegistration(builder.Configuration); //db configs injection
 
             var app = builder.Build();
 
