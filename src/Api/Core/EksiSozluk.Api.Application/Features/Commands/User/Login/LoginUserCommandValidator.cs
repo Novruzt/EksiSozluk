@@ -1,4 +1,4 @@
-﻿using EksiSozluk.Common.Models.RequestModels;
+﻿using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

@@ -1,18 +1,18 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EksiSozluk.Common.Models.Queries
+namespace EksiSozluk.Common.Models.RequestModels.UserCommands
 {
-    public class LoginUserViewModel
+    public class UpdateUserCommand : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string EmailAddress { get; set; }
         public string UserName { get; set; }
-
-        public string Token { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using EksiSozluk.Api.Application.Interfaces.Repositories;
 using EksiSozluk.Common.Infastructure;
 using EksiSozluk.Common.Infastructure.Exceptions;
 using EksiSozluk.Common.Models.Queries;
-using EksiSozluk.Common.Models.RequestModels;
+using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
