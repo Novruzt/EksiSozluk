@@ -1,5 +1,7 @@
 
 using EksiSozluk.Infrastructure.Persistence.Extensions;
+using EksiSozluk.Api.Application.Extensions;
+using FluentValidation.AspNetCore;
 
 namespace EksiSozluk.Api.WebApi
 {
@@ -11,11 +13,18 @@ namespace EksiSozluk.Api.WebApi
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddJsonOptions(opt =>
+                {
+                    opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+                })
+                .AddFluentValidation();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            builder.Services.AddApplicationRegistration();
             builder.Services.AddInfrastructureRegistration(builder.Configuration); //db configs injection
 
             var app = builder.Build();

@@ -24,8 +24,8 @@ namespace EksiSozluk.Infrastructure.Persistence.Context
                 .RuleFor(u=>u.CreateDate, f=>f.Date.Between(DateTime.Now.AddDays(-100), DateTime.Now))
                 .RuleFor(u=>u.FirstName, f=>f.Person.FirstName)
                 .RuleFor(u=>u.LastName, f=>f.Person.LastName)
-                .RuleFor(u=>u.Email, (f, j) => f.Internet.Email(j.FirstName, j.LastName))
-                .RuleFor(u=>u.Username, (f,j)=>f.Internet.UserName(j.FirstName, j.LastName))
+                .RuleFor(u=>u.EmailAddress, (f, j) => f.Internet.Email(j.FirstName, j.LastName))
+                .RuleFor(u=>u.UserName, (f,j)=>f.Internet.UserName(j.FirstName, j.LastName))
                 .RuleFor(u=>u.Password, f=>PasswordEncryptor.Encrypt(f.Internet.Password()))
                 .RuleFor(u=>u.EmailConfirmed, f=>f.PickRandom(true, false))
                 .Generate(500);
