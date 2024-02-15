@@ -1,4 +1,5 @@
-﻿using EksiSozluk.Common.Models.Queries;
+﻿using EksiSozluk.Api.Domain.Models;
+using EksiSozluk.Common.Models.Queries;
 using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -9,7 +10,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IMediator mediator;
 
@@ -22,14 +23,13 @@ namespace EksiSozluk.Api.WebApi.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
+            var res = await mediator.Send(command);
 
-            LoginUserViewModel response = await mediator.Send(command);
-
-            return Ok(response);
+            return Ok(res);
         }
 
         [HttpPost]
-     //   [Authorize]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
         {
             var guid = await mediator.Send(command);
@@ -39,7 +39,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
 
         [HttpPost]
         [Route("Update")]
-       // [Authorize]
+        [Authorize]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
             var guid = await mediator.Send(command);
@@ -47,5 +47,26 @@ namespace EksiSozluk.Api.WebApi.Controllers
             return Ok(guid);
         }
 
+        [HttpPost]
+        [Route("Confirm")]
+        public async Task<IActionResult> ConfirmEMail(Guid id)
+        {
+            var guid = await mediator.Send(new ConfirmEmailCommand() { ConfirmationId = id });
+
+            return Ok(guid);
+        }
+
+        [HttpPost]
+        [Route("ChangePassword")]
+        [Authorize]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangeUserPasswordCommand command)
+        {
+            if (!command.UserId.HasValue)
+                command.UserId = UserId;
+
+            var guid = await mediator.Send(command);
+
+            return Ok(guid);
+        }
     }
 }
