@@ -10,6 +10,7 @@
     <PackageReference Include="Bogus" Version="35.4.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
 
 </Project>
