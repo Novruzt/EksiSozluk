@@ -11,13 +11,13 @@ public class BaseFooterRateViewModel
     public VoteType VoteType { get; set; }
 }
 
-public class BaseFooterFavoriteViewModel
+public class BaseFooterFavoritedViewModel
 {
     public bool IsFavorited { get; set; }
     public int FavoritedCount { get; set; }
 }
 
-public class BaseFooterRateFavoritedViewmodel:BaseFooterFavoriteViewModel
+public class BaseFooterRateFavoritedViewmodel:BaseFooterFavoritedViewModel
 {
     public VoteType VoteType { get; set; }
 }

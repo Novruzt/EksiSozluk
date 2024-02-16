@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EksiSozluk.Api.Application.Features.Queries.GetMainPageEntries;
-public class GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntriesQuery, PagedViewModel<GetEntryDetailViewModel>>
+public class GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntriesQuery, PagedViewModel<GetEntryDetailsViewModel>>
 {
     private readonly IEntryRepository entryRepository;
 
@@ -20,14 +20,14 @@ public class GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntries
     {
         this.entryRepository = entryRepository;
     }
-    public async Task<PagedViewModel<GetEntryDetailViewModel>> Handle(GetMainPageEntriesQuery request, CancellationToken cancellationToken)
+    public async Task<PagedViewModel<GetEntryDetailsViewModel>> Handle(GetMainPageEntriesQuery request, CancellationToken cancellationToken)
     {
         var query = entryRepository.AsQueryable();
         query = query.Include(q => q.EntryFavorites)
                      .Include(q => q.CreatedBy)
                      .Include(q => q.EntryVotes);
 
-        var list = query.Select(i => new GetEntryDetailViewModel()
+        var list = query.Select(i => new GetEntryDetailsViewModel()
         {
             Id = i.Id,
             Subject= i.Subject,
@@ -42,8 +42,8 @@ public class GetMainPageEntriesQueryHandler : IRequestHandler<GetMainPageEntries
                  :Common.ViewModels.VoteType.None,
         });
 
-        PagedViewModel<GetEntryDetailViewModel> entries = await list.GetPagedAsync(request.Page, request.PageSize);
+        PagedViewModel<GetEntryDetailsViewModel> entries = await list.GetPagedAsync(request.Page, request.PageSize);
 
-        return new PagedViewModel<GetEntryDetailViewModel>(entries.Results, entries.PageInfo); 
+        return entries;
     }
 }

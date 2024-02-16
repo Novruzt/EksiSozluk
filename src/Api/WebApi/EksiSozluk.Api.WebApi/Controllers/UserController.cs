@@ -1,4 +1,5 @@
-﻿using EksiSozluk.Api.Domain.Models;
+﻿using EksiSozluk.Api.Application.Features.Queries.GetUserDetails;
+using EksiSozluk.Api.Domain.Models;
 using EksiSozluk.Common.Models.Queries;
 using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using MediatR;
@@ -19,11 +20,28 @@ namespace EksiSozluk.Api.WebApi.Controllers
             this.mediator = mediator;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            UserDetailsViewModel user = await mediator.Send(new GetUserDetailsQuery(id));
+
+            return Ok(user);
+        }
+
+        [HttpGet]
+        [Route("UserName/{userName}")]
+        public async Task<IActionResult> GetByUserName(string userName)
+        {
+            UserDetailsViewModel user = await mediator.Send(new GetUserDetailsQuery(Guid.Empty, userName));
+
+            return Ok(user);
+        }
+
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var res = await mediator.Send(command);
+            LoginUserViewModel res = await mediator.Send(command);
 
             return Ok(res);
         }
@@ -32,7 +50,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
         [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
         {
-            var guid = await mediator.Send(command);
+            Guid guid = await mediator.Send(command);
 
             return Ok(guid);
         }
@@ -42,7 +60,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
         [Authorize]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
-            var guid = await mediator.Send(command);
+            Guid guid = await mediator.Send(command);
 
             return Ok(guid);
         }
@@ -51,7 +69,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
         [Route("Confirm")]
         public async Task<IActionResult> ConfirmEMail(Guid id)
         {
-            var guid = await mediator.Send(new ConfirmEmailCommand() { ConfirmationId = id });
+            bool guid = await mediator.Send(new ConfirmEmailCommand() { ConfirmationId = id });
 
             return Ok(guid);
         }
@@ -64,7 +82,7 @@ namespace EksiSozluk.Api.WebApi.Controllers
             if (!command.UserId.HasValue)
                 command.UserId = UserId;
 
-            var guid = await mediator.Send(command);
+            bool guid = await mediator.Send(command);
 
             return Ok(guid);
         }
