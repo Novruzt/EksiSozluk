@@ -15,7 +15,7 @@ namespace EksiSozluk.Api.Application.Features.Commands.User.ChangePassword
     public class ChangeUserPasswordCommandHandler : IRequestHandler<ChangeUserPasswordCommand, bool>
     { 
         private readonly IUserRepository userRepository;
-        public ChangeUserPasswordCommandHandler(, IUserRepository userRepository)
+        public ChangeUserPasswordCommandHandler(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }

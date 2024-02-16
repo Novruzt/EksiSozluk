@@ -1,4 +1,8 @@
-﻿using EksiSozluk.Api.Domain.Models;
+﻿using EksiSozluk.Api.Application.Features.Queries.GetEntries;
+using EksiSozluk.Api.Application.Features.Queries.GetMainPageEntries;
+using EksiSozluk.Api.Domain.Models;
+using EksiSozluk.Common.Models.Page;
+using EksiSozluk.Common.Models.Queries;
 using EksiSozluk.Common.Models.RequestModels.EntryCommands;
 using EksiSozluk.Common.Models.RequestModels.EntryCommentCommands;
 using MediatR;
@@ -17,6 +21,23 @@ namespace EksiSozluk.Api.WebApi.Controllers
         public EntryController(IMediator mediator)
         {
             this.mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEntries([FromQuery] GetEntriesQuery query)
+        {
+            List<GetEntriesViewModel> entries = await mediator.Send(query);
+
+            return Ok(entries);
+        }
+
+        [HttpGet]
+        [Route("MainPageEntries")]
+        public async Task<IActionResult> GetMainPageEntries(int page, int pageSize)
+        {
+            PagedViewModel<GetEntryDetailViewModel> entries = await mediator.Send(new GetMainPageEntriesQuery(UserId, page, pageSize));
+
+            return Ok(entries);
         }
 
         [HttpPost]
