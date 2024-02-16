@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EksiSozluk.Common.Models.Queries;
-public class GetEntryDetailViewModel: BaseFooterRateFavoritedViewmodel
+public class GetUserEntriesDetailsViewModel:BaseFooterFavoritedViewModel
 {
     public Guid Id { get; set; }
     public string Subject { get; set; }
@@ -13,6 +13,3 @@ public class GetEntryDetailViewModel: BaseFooterRateFavoritedViewmodel
     public DateTime CreatedDate { get; set; }
     public string CreatedByUserName { get; set; }
 }
-
-    
-
