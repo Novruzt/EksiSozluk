@@ -2,6 +2,9 @@
 using EksiSozluk.Infrastructure.Persistence.Extensions;
 using EksiSozluk.Api.Application.Extensions;
 using FluentValidation.AspNetCore;
+using EksiSozluk.Api.WebApi.Infrastructure.Extensions;
+using FluentValidation;
+using EksiSozluk.Common.Infastructure.Results;
 
 namespace EksiSozluk.Api.WebApi
 {
@@ -17,12 +20,18 @@ namespace EksiSozluk.Api.WebApi
                 .AddJsonOptions(opt =>
                 {
                     opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-                })
-                .AddFluentValidation();
+                });
+
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
+            builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+
+            //  .AddFluentValidation();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.ConfirugeAuth(builder.Configuration);
 
             builder.Services.AddApplicationRegistration();
             builder.Services.AddInfrastructureRegistration(builder.Configuration); //db configs injection
@@ -38,6 +47,9 @@ namespace EksiSozluk.Api.WebApi
 
             app.UseHttpsRedirection();
 
+           app.ConfigureExceptionHandling(includeExceptionDetails: app.Environment.IsDevelopment());
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

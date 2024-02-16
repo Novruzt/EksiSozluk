@@ -12,9 +12,9 @@ namespace EksiSozluk.Api.WebApi.Controllers
         {
             get
             {
-                var val = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var value = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                return val is null ? null : new Guid(val);
+                return value is null ? null : new Guid(value);
             }
         }
     }
