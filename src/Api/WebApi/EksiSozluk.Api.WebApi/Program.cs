@@ -36,6 +36,13 @@ namespace EksiSozluk.Api.WebApi
             builder.Services.AddApplicationRegistration();
             builder.Services.AddInfrastructureRegistration(builder.Configuration); //db configs injection
 
+            builder.Services.AddCors(o => o.AddPolicy("DefaultPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -52,6 +59,7 @@ namespace EksiSozluk.Api.WebApi
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseCors("DefaultPolicy");
 
             app.MapControllers();
 

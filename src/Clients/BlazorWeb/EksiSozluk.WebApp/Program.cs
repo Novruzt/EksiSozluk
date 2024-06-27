@@ -14,10 +14,9 @@ namespace EksiSozluk.WebApp
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            string url = builder.Configuration["profiles:https:applicationUrl"];
             builder.Services.AddHttpClient("WebApiClient", client =>
             {
-                client.BaseAddress = new Uri(url);
+                client.BaseAddress = new Uri("http://localhost:5108");
             });
 
             //AuthTokenHandler goes here.
