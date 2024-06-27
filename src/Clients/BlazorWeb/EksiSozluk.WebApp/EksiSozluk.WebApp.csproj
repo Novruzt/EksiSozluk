@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BlazorWebAssemblyEnableLinking>true</BlazorWebAssemblyEnableLinking>
+	  <RunWasmToolchain>true</RunWasmToolchain>
+	  <WasmShellCommand>dotnet</WasmShellCommand>
+	  <WasmToolchainDir>.</WasmToolchainDir>
   </PropertyGroup>
 
   <ItemGroup>

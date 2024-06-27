@@ -21,23 +21,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{12F92B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorWeb", "BlazorWeb", "{B334D2C0-7C30-407D-891A-4DF69E037AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Common", "src\Common\EksiSozluk.Common\EksiSozluk.Common.csproj", "{230A9EFB-0155-40BE-934D-3BEEDDD6D018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Common", "src\Common\EksiSozluk.Common\EksiSozluk.Common.csproj", "{230A9EFB-0155-40BE-934D-3BEEDDD6D018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Api.Domain", "src\Api\Core\EksiSozluk.Api.Domain\EksiSozluk.Api.Domain.csproj", "{82DECCB7-EB39-412E-8A10-C4F054EA8E9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Api.Domain", "src\Api\Core\EksiSozluk.Api.Domain\EksiSozluk.Api.Domain.csproj", "{82DECCB7-EB39-412E-8A10-C4F054EA8E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Api.Application", "src\Api\Core\EksiSozluk.Api.Application\EksiSozluk.Api.Application.csproj", "{DD1A0209-8807-474A-BFD5-620BD7FE4A99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Api.Application", "src\Api\Core\EksiSozluk.Api.Application\EksiSozluk.Api.Application.csproj", "{DD1A0209-8807-474A-BFD5-620BD7FE4A99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Infrastructure.Persistence", "src\Api\Infrastructure\EksiSozluk.Infrastructure.Persistence\EksiSozluk.Infrastructure.Persistence.csproj", "{55238965-DEF1-4AFF-BC9E-44D13D18CD86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Infrastructure.Persistence", "src\Api\Infrastructure\EksiSozluk.Infrastructure.Persistence\EksiSozluk.Infrastructure.Persistence.csproj", "{55238965-DEF1-4AFF-BC9E-44D13D18CD86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Api.WebApi", "src\Api\WebApi\EksiSozluk.Api.WebApi\EksiSozluk.Api.WebApi.csproj", "{2E1C72EF-983B-4387-8A1A-BE4BA3B0A65E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Api.WebApi", "src\Api\WebApi\EksiSozluk.Api.WebApi\EksiSozluk.Api.WebApi.csproj", "{2E1C72EF-983B-4387-8A1A-BE4BA3B0A65E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Projections.FavoriteService", "src\Projections\EksiSozluk.Projections.FavoriteService\EksiSozluk.Projections.FavoriteService.csproj", "{3B53318C-1DBD-46BE-BE4B-A30A986B760A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Projections.FavoriteService", "src\Projections\EksiSozluk.Projections.FavoriteService\EksiSozluk.Projections.FavoriteService.csproj", "{3B53318C-1DBD-46BE-BE4B-A30A986B760A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Projections.UserService", "src\Projections\EksiSozluk.Projections.UserService\EksiSozluk.Projections.UserService.csproj", "{92927040-DCB5-40C9-98DC-2FC3709969FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Projections.UserService", "src\Projections\EksiSozluk.Projections.UserService\EksiSozluk.Projections.UserService.csproj", "{92927040-DCB5-40C9-98DC-2FC3709969FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.Projections.VoteService", "src\Projections\EksiSozluk.Projections.VoteService\EksiSozluk.Projections.VoteService.csproj", "{30F3B6F7-11FC-46F8-A252-8EC840587F2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.Projections.VoteService", "src\Projections\EksiSozluk.Projections.VoteService\EksiSozluk.Projections.VoteService.csproj", "{30F3B6F7-11FC-46F8-A252-8EC840587F2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EksiSozluk.WebApp", "src\Clients\BlazorWeb\EksiSozluk.WebApp\EksiSozluk.WebApp.csproj", "{E140840D-FB4C-4B19-8BD9-98E65B031D32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EksiSozluk.WebApp", "src\Clients\BlazorWeb\EksiSozluk.WebApp\EksiSozluk.WebApp.csproj", "{E140840D-FB4C-4B19-8BD9-98E65B031D32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
