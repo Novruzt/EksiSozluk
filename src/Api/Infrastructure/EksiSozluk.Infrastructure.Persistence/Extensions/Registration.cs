@@ -26,10 +26,13 @@ namespace EksiSozluk.Infrastructure.Persistence.Extensions
             var dataSeed = new DataSeed();
             dataSeed.SeedAsync(configuration).GetAwaiter().GetResult();
 
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IEmailConfirmationRepository, EmailConfirmationRepository>();
-            services.AddScoped<IEntryRepository, EntryRepository>();
-            services.AddScoped<IEntryCommentRepository, EntryCommentRepository>();
+            services.Scan(scan =>
+            {
+                scan.FromAssembliesOf(typeof(UserRepository))
+                .AddClasses()
+                .AsMatchingInterface()
+                .WithScopedLifetime();
+            });
 
             return services;
         }
