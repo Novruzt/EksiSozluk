@@ -29,11 +29,13 @@ namespace EksiSozluk.WebApp
                 return clientFactory.CreateClient("WebApiClient");
             });
 
-            builder.Services.AddTransient<IVoteService, VoteService>();
-            builder.Services.AddTransient<IUserService, UserService>();
-            builder.Services.AddTransient<IEntryService, EntryService>();
-            builder.Services.AddTransient<IFavService, FavService>();
-            builder.Services.AddTransient<IIdentityService, IdentityService>();
+            builder.Services.Scan(scan =>
+            {
+                scan.FromAssembliesOf(typeof(VoteService))
+                .AddClasses()
+                .AsMatchingInterface()
+                .WithTransientLifetime();
+            });
 
             builder.Services.AddBlazoredLocalStorage();
 
