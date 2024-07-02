@@ -1,6 +1,8 @@
 using Blazored.LocalStorage;
+using EksiSozluk.WebApp.Infastructure.Auth;
 using EksiSozluk.WebApp.Infastructure.Services;
 using EksiSozluk.WebApp.Infastructure.Services.Interfaces;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -17,9 +19,9 @@ namespace EksiSozluk.WebApp
             builder.Services.AddHttpClient("WebApiClient", client =>
             {
                 client.BaseAddress = new Uri("http://localhost:5108");
-            });
+            }).AddHttpMessageHandler<AuthTokenHandler>();
 
-            //AuthTokenHandler goes here.
+           
 
             builder.Services.AddScoped(sp =>
             {
@@ -36,7 +38,11 @@ namespace EksiSozluk.WebApp
                 .WithTransientLifetime();
             });
 
+            builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
+            builder.Services.AddScoped<AuthTokenHandler>();
+
             builder.Services.AddBlazoredLocalStorage();
+            builder.Services.AddAuthorizationCore();
 
             await builder.Build().RunAsync();
         }

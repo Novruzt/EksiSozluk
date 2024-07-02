@@ -16,15 +16,13 @@ namespace EksiSozluk.Api.WebApi
 
             // Add services to the container.
 
-            builder.Services.AddControllers()
+            builder.Services.AddControllers(opt => opt.Filters.Add<ValidateModelStateFilter>())
                 .AddJsonOptions(opt =>
                 {
                     opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-                });
-
-            builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddFluentValidationClientsideAdapters();
-            builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+                })
+                .AddFluentValidation()
+                .ConfigureApiBehaviorOptions(o => o.SuppressModelStateInvalidFilter = true);
 
             //  .AddFluentValidation();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
