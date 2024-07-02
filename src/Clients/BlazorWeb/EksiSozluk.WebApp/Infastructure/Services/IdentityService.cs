@@ -51,14 +51,14 @@ public class IdentityService : IIdentityService
     public async Task<bool> Login(LoginUserCommand command)
     {
         string responseStr;
-        var httpResponse = await httpClient.PostAsJsonAsync("/api/User/Login", command);
+        HttpResponseMessage? httpResponse = await httpClient.PostAsJsonAsync("/api/User/Login", command);
 
         if (httpResponse != null && !httpResponse.IsSuccessStatusCode)
         {
             if (httpResponse.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 responseStr = await httpResponse.Content.ReadAsStringAsync();
-                var validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseStr, defaultJsonOpt);
+                ValidationResponseModel? validation = JsonSerializer.Deserialize<ValidationResponseModel>(responseStr, defaultJsonOpt);
                 responseStr = validation.FlattenErrors;
                 throw new DatabaseValidationException(responseStr);
             }
@@ -68,7 +68,7 @@ public class IdentityService : IIdentityService
 
 
         responseStr = await httpResponse.Content.ReadAsStringAsync();
-        var response = JsonSerializer.Deserialize<LoginUserViewModel>(responseStr);
+        LoginUserViewModel? response = JsonSerializer.Deserialize<LoginUserViewModel>(responseStr);
 
         if (!string.IsNullOrEmpty(response.Token)) // login success
         {
