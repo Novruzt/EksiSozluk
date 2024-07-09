@@ -4,7 +4,7 @@ using EksiSozluk.Api.Application.Extensions;
 using FluentValidation.AspNetCore;
 using EksiSozluk.Api.WebApi.Infrastructure.Extensions;
 using FluentValidation;
-using EksiSozluk.Common.Infastructure.Results;
+using EksiSozluk.Common.Infrastructure.Results;
 
 namespace EksiSozluk.Api.WebApi
 {

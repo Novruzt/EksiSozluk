@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EksiSozluk.Api.Application.Interfaces.Repositories;
-using EksiSozluk.Common.Infastructure.Extensions;
+using EksiSozluk.Common.Infrastructure.Extensions;
 using EksiSozluk.Common.Models.Page;
 using EksiSozluk.Common.Models.Queries;
 using MediatR;

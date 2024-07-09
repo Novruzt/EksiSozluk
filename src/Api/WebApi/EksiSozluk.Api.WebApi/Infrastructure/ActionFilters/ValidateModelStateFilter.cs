@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
-using EksiSozluk.Common.Infastructure.Results;
+using EksiSozluk.Common.Infrastructure.Results;
 
 namespace EksiSozluk.Api.WebApi;
 

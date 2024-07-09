@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using EksiSozluk.Api.Application.Interfaces.Repositories;
 using EksiSozluk.Common.Events.User;
-using EksiSozluk.Common.Infastructure;
+using EksiSozluk.Common.Infrastructure;
 using EksiSozluk.Common;
-using EksiSozluk.Common.Infastructure.Exceptions;
+using EksiSozluk.Common.Infrastructure.Exceptions;
 using MediatR;
 using System;
 using System.Collections.Generic;

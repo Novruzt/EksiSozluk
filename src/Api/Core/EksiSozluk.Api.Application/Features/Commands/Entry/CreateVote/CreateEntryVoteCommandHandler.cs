@@ -1,6 +1,6 @@
 ﻿using EksiSozluk.Common;
 using EksiSozluk.Common.Events.Entry;
-using EksiSozluk.Common.Infastructure;
+using EksiSozluk.Common.Infrastructure;
 using EksiSozluk.Common.Models.RequestModels.EntryCommands;
 using MediatR;
 using System;
