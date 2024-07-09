@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EksiSozluk.Api.Application.Interfaces.Repositories;
-using EksiSozluk.Common.Infastructure;
-using EksiSozluk.Common.Infastructure.Exceptions;
+using EksiSozluk.Common.Infrastructure;
+using EksiSozluk.Common.Infrastructure.Exceptions;
 using EksiSozluk.Common.Models.Queries;
 using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using MediatR;

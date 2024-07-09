@@ -1,6 +1,6 @@
 ﻿using Bogus;
 using EksiSozluk.Api.Domain.Models;
-using EksiSozluk.Common.Infastructure;
+using EksiSozluk.Common.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;

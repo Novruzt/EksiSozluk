@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using EksiSozluk.Common.Infastructure.Extensions;
+using EksiSozluk.Common.Infrastructure.Extensions;
 
 namespace EksiSozluk.Api.Application.Features.Queries.GetUserEntries;
 public class GetUserEntriesQueryHandler : IRequestHandler<GetUserEntriesQuery, PagedViewModel<GetUserEntriesDetailsViewModel>>

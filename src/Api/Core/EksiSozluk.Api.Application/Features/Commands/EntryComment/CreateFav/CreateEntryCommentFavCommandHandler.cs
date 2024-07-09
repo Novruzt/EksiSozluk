@@ -1,6 +1,6 @@
 ﻿using EksiSozluk.Common;
 using EksiSozluk.Common.Events.EntryComment;
-using EksiSozluk.Common.Infastructure;
+using EksiSozluk.Common.Infrastructure;
 using MediatR;
 using System;
 using System.Collections.Generic;

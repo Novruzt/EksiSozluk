@@ -1,5 +1,5 @@
-﻿using EksiSozluk.Common.Infastructure.Exceptions;
-using EksiSozluk.Common.Infastructure.Results;
+﻿using EksiSozluk.Common.Infrastructure.Exceptions;
+using EksiSozluk.Common.Infrastructure.Results;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 

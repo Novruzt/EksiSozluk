@@ -2,8 +2,8 @@
 using EksiSozluk.Api.Application.Interfaces.Repositories;
 using EksiSozluk.Common;
 using EksiSozluk.Common.Events.User;
-using EksiSozluk.Common.Infastructure;
-using EksiSozluk.Common.Infastructure.Exceptions;
+using EksiSozluk.Common.Infrastructure;
+using EksiSozluk.Common.Infrastructure.Exceptions;
 using EksiSozluk.Common.Models.RequestModels.UserCommands;
 using MediatR;
 using System;

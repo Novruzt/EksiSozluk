@@ -1,7 +1,7 @@
 using Blazored.LocalStorage;
-using EksiSozluk.WebApp.Infastructure.Auth;
-using EksiSozluk.WebApp.Infastructure.Services;
-using EksiSozluk.WebApp.Infastructure.Services.Interfaces;
+using EksiSozluk.WebApp.Infrastructure.Auth;
+using EksiSozluk.WebApp.Infrastructure.Services;
+using EksiSozluk.WebApp.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
